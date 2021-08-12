@@ -42,4 +42,4 @@ jobs:
           context: ./caddy
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/${{ github.repository_owner }}/caddy:latest
+          tags: ghcr.io/linuxhub-group/caddy:latest
