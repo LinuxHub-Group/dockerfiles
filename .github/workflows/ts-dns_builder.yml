@@ -25,6 +25,10 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
+        name: Setup ENV
+        run: |
+          echo owner_lc=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]') >> $GITHUB_ENV
+      -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       -
@@ -41,10 +45,10 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: ./ts-dns
+          context: ./${{ github.workflow }}
           push: true
           platforms: linux/amd64,linux/arm64
-          tags: ghcr.io/linuxhub-group/ts-dns:latest
-          labels:
-            - org.opencontainers.image.documentation=https://github.com/LinuxHub-Group/dockerfiles/blob/main/ts-dns/README.md
-            - org.opencontainers.image.authors=${{ github.repository_owner }}
+          tags: ghcr.io/${{ env.owner_lc }}/${{ github.workflow }}:latest
+          labels: |
+            org.opencontainers.image.documentation=https://github.com/LinuxHub-Group/dockerfiles/blob/main/${{ github.workflow }}/README.md
+            org.opencontainers.image.authors=${{ github.repository_owner }}
