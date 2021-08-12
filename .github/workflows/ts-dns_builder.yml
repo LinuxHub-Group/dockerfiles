@@ -45,3 +45,6 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ghcr.io/linuxhub-group/ts-dns:latest
+          labels:
+            - org.opencontainers.image.documentation=https://github.com/LinuxHub-Group/dockerfiles/blob/main/ts-dns/README.md
+            - org.opencontainers.image.authors=${{ github.repository_owner }}

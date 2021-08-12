@@ -45,3 +45,6 @@ jobs:
           push: true
           platforms: linux/amd64,linux/arm64
           tags: ghcr.io/linuxhub-group/caddy:latest
+          labels:
+            - org.opencontainers.image.documentation=https://github.com/LinuxHub-Group/dockerfiles/blob/main/caddy/README.md
+            - org.opencontainers.image.authors=${{ github.repository_owner }}
