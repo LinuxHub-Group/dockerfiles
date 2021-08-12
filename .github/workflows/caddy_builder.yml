@@ -1,19 +1,21 @@
 name: caddy
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: null
   schedule:
     - cron: '0 10 * * *' # everyday at 10am
   push:
     branches:
       - 'main'
     paths:
-      - caddy
+      - 'caddy/**'
+      - '.github/workflows/ts-dns_builder.yml'
   pull_request:
     branches:
       - 'main'
     paths:
-      - caddy
+      - 'caddy/**'
+      - '.github/workflows/ts-dns_builder.yml'
 
 jobs:
   docker:
