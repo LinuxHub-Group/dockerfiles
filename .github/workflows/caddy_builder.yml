@@ -10,12 +10,6 @@ on:
     paths:
       - 'caddy/**'
       - '.github/workflows/ts-dns_builder.yml'
-  pull_request:
-    branches:
-      - 'main'
-    paths:
-      - 'caddy/**'
-      - '.github/workflows/ts-dns_builder.yml'
 
 jobs:
   docker:
