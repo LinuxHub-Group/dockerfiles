@@ -1,4 +1,4 @@
-FROM golang:1.15-alpine as builder
+FROM golang:1.17-alpine as builder
 
 WORKDIR /go/src/
 
@@ -6,6 +6,7 @@ RUN apk add git \
     && go env -w GOPROXY=https://goproxy.io,direct
 RUN git clone https://github.com/wolf-joe/ts-dns.git
 RUN cd ts-dns/cmd \
+    && go get -t . \
     && go build -o ts-dns
 
 FROM alpine as prod
