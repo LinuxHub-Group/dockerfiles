@@ -2,8 +2,7 @@ FROM golang:1.17-alpine as builder
 
 WORKDIR /go/src/
 
-RUN apk add git \
-    && go env -w GOPROXY=https://goproxy.io,direct
+RUN apk add git
 RUN git clone https://github.com/wolf-joe/ts-dns.git
 RUN cd ts-dns/cmd \
     && go get -t . \
