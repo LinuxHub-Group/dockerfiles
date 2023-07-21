@@ -1,0 +1,5 @@
+FROM peakcom/s5cmd
+
+RUN mkdir /etc/cron
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["sh" ,"/entrypoint.sh" ]
