@@ -3,10 +3,6 @@
 SYNCOPTIONS=""
 OPTIONS=""
 
-if [ -n "$S5CMD_ENDPOINT" ]; then
-    OPTIONS="${OPTIONS} --endpoint-url $S5CMD_ENDPOINT"
-fi
-
 if [ -n "$S5CMD_SSE" ]; then
     SYNCOPTIONS="${SYNCOPTIONS} --sse $S5CMD_SSE"
 fi
