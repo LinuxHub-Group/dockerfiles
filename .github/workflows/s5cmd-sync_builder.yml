@@ -2,8 +2,6 @@ name: s5cmd-sync
 
 on:
   workflow_dispatch: null
-  schedule:
-    - cron: '0 10 */2 * *' # every 2 days at 10am
   push:
     branches:
       - 'main'
